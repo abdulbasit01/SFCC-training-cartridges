@@ -1,0 +1,22 @@
+<h3>
+    this is basket template
+</h3>
+<hr>
+<iscomment>
+    <h5 class="card-title">The current basket contains ${pdict.basket} products</h5>
+</iscomment>
+<iscomment> ${pdict.allLineItems} </iscomment>
+<isif condition="${if pdict.allLineItems not empty}">
+    basket is empty
+<iselse/>
+    basket is not empty and have ${pdict.allLineItemsLength} items
+    <ul>
+        <isloop items="${pdict.allLineItems}" var="allLineItems" status="loopstatus">
+        <iscomment> according to expercise point 11 null is recieved in products </iscomment>
+            <li>
+                ${allLineItems.product.name}
+            </li>
+        </isloop>
+    </ul>
+
+</isif>
