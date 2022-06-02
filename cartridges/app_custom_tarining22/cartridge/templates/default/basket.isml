@@ -67,7 +67,7 @@
             <div class="container">
                 <h3>
 
-                    the basket has ${pdict.basketModel.items.length} item(s)
+                    the basket has ${pdict.basketModel.numItems} item(s)
                 </h3>
                 <div class="row">
                     <isloop items="${pdict.basketModel.items.reverse()}" var="lineItem" status="loopstatus">
@@ -76,7 +76,7 @@
                                 <small
                                     class="badge badge-primary dounded-pill bg-primary position-absolute">${lineItem.options[0].displayName}</small>
                             <iselse/>
-
+                                This item has no display name
                             </isif>
                             <img class="product-image w-100" src="${lineItem.images.small[0].url}"
                                 alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}">
