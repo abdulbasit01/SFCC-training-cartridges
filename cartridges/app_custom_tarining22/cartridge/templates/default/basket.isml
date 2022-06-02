@@ -1,22 +1,99 @@
-<h3>
-    this is basket template
-</h3>
-<hr>
-<iscomment>
-    <h5 class="card-title">The current basket contains ${pdict.basket} products</h5>
-</iscomment>
-<iscomment> ${pdict.allLineItems} </iscomment>
-<isif condition="${if pdict.allLineItems not empty}">
-    basket is empty
-<iselse/>
-    basket is not empty and have ${pdict.allLineItemsLength} items
-    <ul>
-        <isloop items="${pdict.allLineItems}" var="allLineItems" status="loopstatus">
-        <iscomment> according to expercise point 11 null is recieved in products </iscomment>
-            <li>
-                ${allLineItems.product.name}
-            </li>
-        </isloop>
-    </ul>
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/basket.css');
+    </isscript>
+    <iscomment>
+        <div class="container">
 
-</isif>
+            <h3>
+                this is basket template
+            </h3>
+            <hr>
+            <h5 class="card-title">The current basket contains ${pdict.basket} products</h5>
+            ${pdict.allLineItems}
+            <isif condition="${pdict.allLineItemsLength > 0}">
+                basket is empty
+            <iselse/>
+                basket is not empty and have ${pdict.allLineItemsLength} items
+                <ul>
+                    <isloop items="${pdict.allLineItems}" var="allLineItems" status="loopstatus">
+                        according to expercise point 11 null is recieved in products
+                        <li>
+                            ${allLineItems.product.name}
+                        </li>
+                    </isloop>
+                </ul>
+                <table class="table border table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                Index
+                            </th>
+                            <th>
+                                Count
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Actions
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <isloop items="${pdict.allLineItems}" var="allLineItems" status="loopstate">
+                            <tr>
+                                <th>${loopstate.count}</th>
+                                <th>${loopstate.index}</th>
+                                <th>${allLineItems.product.name}</th>
+                                <th>
+                                    <button onclick="console.log(`${loopstate.count}`)" class="btn btn-success">Go to
+                                        product</button>
+                                    <button class="btn btn-danger">Remove product</button>
+                                </th>
+                            </tr>
+                        </isloop>
+
+                    </tbody>
+                </table>
+            </isif>
+        </div>
+    </iscomment>
+    <div class="container">
+        <isif condition="${!pdict.basketModel.items.length}">
+            no item found in the basket
+        <iselse/>
+            <div class="container">
+                <h3>
+
+                    the basket has ${pdict.basketModel.items.length} item(s)
+                </h3>
+                <div class="row">
+                    <isloop items="${pdict.basketModel.items.reverse()}" var="lineItem" status="loopstatus">
+                        <div class="card col-lg-3 position-relative">
+                            <isif condition="${lineItem.options[0].displayName}">
+                                <small
+                                    class="badge badge-primary dounded-pill bg-primary position-absolute">${lineItem.options[0].displayName}</small>
+                            <iselse/>
+
+                            </isif>
+                            <img class="product-image w-100" src="${lineItem.images.small[0].url}"
+                                alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}">
+                            <iscomment>
+                                <h4>${lineItem.productName}</h4>
+                            </iscomment>
+                            <isinclude template="cart/productCard/cartProductCardHeader" />
+
+                            <isloop items="${lineItem.variationAttributes}" var="attribute">
+                                <p class="line-item-attributes ${attribute.displayName}-${lineItem.UUID}">
+                                    ${attribute.displayName}: ${attribute.displayValue}</p>
+                            </isloop>
+
+                        </div>
+                    </isloop>
+                </div>
+            </div>
+        </isif>
+    </div>
+</isdecorate>

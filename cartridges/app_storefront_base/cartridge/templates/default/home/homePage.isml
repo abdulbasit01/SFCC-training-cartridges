@@ -40,7 +40,7 @@
 
     <div class="container home-categories homepage">
         <div class="row home-main-categories no-gutters">
-            ${store}
+            <iscomment> ${store} </iscomment>
             <isslot id="home-categories-m" description="Categories slots on the home page." context="global" />
         </div>
     </div>

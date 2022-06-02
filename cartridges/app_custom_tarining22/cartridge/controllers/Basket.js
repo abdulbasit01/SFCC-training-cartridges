@@ -4,21 +4,37 @@
  */
 var server = require('server');
 var URLUtils = require('dw/web/URLUtils');
+// bad practice
 server.get("Show", function (req, res, next) {
     var BasketMgr = require('dw/order/BasketMgr');
-    var currentBasket = BasketMgr.getCurrentBasket();
-    // res.render('basket', {basket: parseInt(currentBasket.productQuantityTotal) || "no"});
-    if (currentBasket.allProductLineItems.length) {
-        res.render('basket',
-            {
-                allLineItems: currentBasket.allProductLineItems || "no",
-                allLineItemsLength: currentBasket.allProductLineItems.length
-            }
-        );
+    
+    var CartModel = require('*/cartridge/models/cart');
 
-    } else {
-        res.redirect(URLUtils.url('Home-Show'));
-    }
+    
+    var currentBasket = BasketMgr.getCurrentBasket();
+    
+    var basketModel = new CartModel(currentBasket);
+
+    res.render('basket', { basketModel:basketModel });
+    
     next();
 });
+
 module.exports = server.exports();
+// var currentBasket = BasketMgr.getCurrentBasket();
+
+// res.render('basket', {basket: parseInt(currentBasket.productQuantityTotal) || "no"});
+// allProductLineItems gives the list of all the items that are either dependant or not but getProductLineItems() method gives the product that are not dependant on any of the product in the line
+// if (currentBasket && currentBasket.getProductLineItems() && currentBasket.getProductLineItems().length) {
+//     res.render('basket',
+//         {
+//             allLineItems: currentBasket.getProductLineItems() || "no",
+//             allLineItemsLength: currentBasket.getProductLineItems().length
+//         }
+//     );
+
+// }
+// uses this if else block because when the cart is empty the page crashed
+// else {
+//     res.redirect(URLUtils.url('Home-Show'));
+// }
