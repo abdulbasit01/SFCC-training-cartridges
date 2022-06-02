@@ -69,9 +69,10 @@
 
                     the basket has ${pdict.basketModel.numItems} item(s)
                 </h3>
+                <h2>${Resource.msg('title.cart', 'cart', null)}</h2>
                 <div class="row">
                     <isloop items="${pdict.basketModel.items.reverse()}" var="lineItem" status="loopstatus">
-                        <div class="card col-lg-3 position-relative">
+                        <div class="col-lg-3 position-relative">
                             <isif condition="${lineItem.options[0].displayName}">
                                 <small
                                     class="badge badge-primary dounded-pill bg-primary position-absolute">${lineItem.options[0].displayName}</small>
@@ -89,8 +90,17 @@
                                 <p class="line-item-attributes ${attribute.displayName}-${lineItem.UUID}">
                                     ${attribute.displayName}: ${attribute.displayValue}</p>
                             </isloop>
+                            <div>
+                                ${Resource.msg('product.name', 'cart', null)}
+                                <isinclude template="cart/productCard/cartProductCardHeader" />
+                                ${Resource.msg('product.price', 'cart', null)}
+                                <isinclude template="cart/productCard/cartProductCardProductPrice" />
+                                ${Resource.msg('product.availability', 'cart', null)}
+                                <isinclude template="cart/productCard/cartProductCardAvailability" />
+                            </div>
 
                         </div>
+
                     </isloop>
                 </div>
             </div>
