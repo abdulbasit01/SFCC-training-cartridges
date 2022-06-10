@@ -1,5 +1,5 @@
 <isdecorate template="/common/layout/page">
-    hello world
+    ${"hello world"}
     <div>
         <isinclude url="${URLUtils.url('Basket-Show')}" />
 
