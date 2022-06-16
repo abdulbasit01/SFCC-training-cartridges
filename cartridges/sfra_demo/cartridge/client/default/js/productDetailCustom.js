@@ -1,38 +1,40 @@
+/* eslint-disable no-undef */
+/* eslint-disable require-jsdoc */
 'use strict';
-var base = require('base/product/base');
+var base = require('product/base');
 
 function updateAvailability(e, response) {
-	var availabilityValue = '';
-	var availabilityMessages = response.product.ats.messages;
-	if (!response.product.readyToOrder) {
-	    availabilityValue = '<li><div>' + response.resources.info_selectforstock + '</div></li>';
-	} else {
-	    availabilityMessages.forEach(function (message) {
-	        availabilityValue += '<li><div>' + message + '</div></li>';
-	    });
-	}
+    var availabilityValue = '';
+    var availabilityMessages = response.product.ats.messages;
+    if (!response.product.readyToOrder) {
+        availabilityValue = '<li><div>' + response.resources.info_selectforstock + '</div></li>';
+    } else {
+        availabilityMessages.forEach(function (message) {
+            availabilityValue += '<li><div>' + message + '</div></li>';
+        });
+    }
 
-	$('div.availability', response.$productContainer)
-	    .data('ready-to-order', response.product.readyToOrder)
-	    .data('available', response.product.available);
+    $('div.availability', response.$productContainer)
+        .data('ready-to-order', response.product.readyToOrder)
+        .data('available', response.product.available);
 
-	$('.availability-msg', response.$productContainer)
-	    .empty().html(availabilityValue);
+    $('.availability-msg', response.$productContainer)
+        .empty().html(availabilityValue);
 
-	if ($('.global-availability').length) {
-	    var allAvailable = $('.product-availability').toArray()
-	        .every(function (item) { return $(item).data('available'); });
+    if ($('.global-availability').length) {
+        var allAvailable = $('.product-availability').toArray()
+            .every(function (item) { return $(item).data('available'); });
 
-	    var allReady = $('.product-availability').toArray()
-	        .every(function (item) { return $(item).data('ready-to-order'); });
+        var allReady = $('.product-availability').toArray()
+            .every(function (item) { return $(item).data('ready-to-order'); });
 
-	    $('.global-availability')
-	        .data('ready-to-order', allReady)
-	        .data('available', allAvailable);
+        $('.global-availability')
+            .data('ready-to-order', allReady)
+            .data('available', allAvailable);
 
-	    $('.global-availability .availability-msg').empty()
-	        .html(allReady ? response.message : response.resources.info_selectforstock);
-	}
+        $('.global-availability .availability-msg').empty()
+            .html(allReady ? response.message : response.resources.info_selectforstock);
+    }
 }
 
 $(document).ready(function () {

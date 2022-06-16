@@ -49,7 +49,7 @@ module.exports = [{
     name: 'scss',
     entry: scssFiles,
     output: {
-        path: path.resolve('./cartridges/app_storefront_base/cartridge/static'),
+        path: path.resolve('./cartridges/app_custom_tarining22/cartridge/static'),
         filename: '[name].css'
     },
     module: {

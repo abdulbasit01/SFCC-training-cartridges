@@ -3,7 +3,6 @@
  * @namespace Basket
  */
 var server = require('server');
-var URLUtils = require('dw/web/URLUtils');
 // bad practice
 server.get("Show", function (req, res, next) {
     var BasketMgr = require('dw/order/BasketMgr');
@@ -15,7 +14,7 @@ server.get("Show", function (req, res, next) {
     
     var basketModel = new CartModel(currentBasket);
 
-    res.render('basket', { basketModel:basketModel });
+    res.render('basket', { basketModel });
     
     next();
 });
