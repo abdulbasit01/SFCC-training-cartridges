@@ -25,7 +25,7 @@ module.exports = [{
     name: 'js',
     entry: jsFiles,
     output: {
-        path: path.resolve('./cartridges/app_custom_tarining22/cartridge/static'),
+        path: path.resolve('./cartridges/app_storefront_base/cartridge/static'),
         filename: '[name].js'
     },
     module: {
@@ -49,7 +49,7 @@ module.exports = [{
     name: 'scss',
     entry: scssFiles,
     output: {
-        path: path.resolve('./cartridges/app_custom_tarining22/cartridge/static'),
+        path: path.resolve('./cartridges/app_storefront_base/cartridge/static'),
         filename: '[name].css'
     },
     module: {
@@ -85,3 +85,4 @@ module.exports = [{
         new ExtractTextPlugin({ filename: '[name].css' })
     ]
 }];
+

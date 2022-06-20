@@ -1,26 +1,27 @@
-<iscomment> TEMPLATENAME: helloform.isml </iscomment>
-<iscomment>
+<isdecorate template="common/layout/page">
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/helloform.css');
         assets.addJs('/js/helloform.js');
     </isscript>
-</iscomment>
 
-<div class="hero slant-down login-banner">
-    <h1>${"SFRA Hello World Form"}</h1>
-</div>
+    <div class="hero slant-down login-banner">
+        <h1>${"SFRA Hello World Form"}</h1>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 m-auto">
+                <form action="SFRAFormResult-Start" class="login" method="POST" name="SFRAHelloForm">
 
-<iscomment> </iscomment>
-<div class="card">
+                    <div class="form-group required">
+                        <label>${"Nickname"}: </label> <input type="input" required id="nickname" class="form-control"
+                            name="nickname" />
+                    </div>
 
-    <form action="SFRAFormResult-Start" class="login" method="POST" name="SFRAHelloForm">
-
-        <div class="form-group required">
-            <label>${"Nickname"}: </label> <input type="input" id="nickname" class="form-control" name="nickname" />
+                    <button type="submit" class="btn btn-block btn-primary">${"Submit"}</button>
+                    <button type="submit" class="btn btn-block btn-primary">${"Cancel"}</button>
+                </form>
+            </div>
         </div>
-
-        <button type="submit" class="btn btn-block btn-primary">${"Submit"}</button>
-        <button type="submit" class="btn btn-block btn-primary">${"Cancel"}</button>
-    </form>
-</div>
+    </div>
+</isdecorate>

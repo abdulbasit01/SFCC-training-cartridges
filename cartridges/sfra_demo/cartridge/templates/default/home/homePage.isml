@@ -2,6 +2,9 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/productTile.js');
+
+
+        assets.addJs('/js/testscript.js');
         assets.addCss('/css/homePage.css');
     </isscript>
 

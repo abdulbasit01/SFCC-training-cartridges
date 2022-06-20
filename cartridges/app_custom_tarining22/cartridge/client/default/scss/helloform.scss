@@ -1,0 +1,11 @@
+@import "variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+@import "storeLocator/storeLocator";
+input{
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 50px;
+    box-shadow: none;
+}
