@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <form role="form">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="hpEmailSignUp"
+                        placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
+                        aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4 email-description">${Resource.msg('description.form.emailsignup', 'homePage', null)}
+        </div>
+    </div>
+</div>
