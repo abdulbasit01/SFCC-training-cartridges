@@ -1,7 +1,6 @@
-/* eslint-disable no-undef */
-/* eslint-disable require-jsdoc */
+
 'use strict';
-var base = require('product/base');
+var base = require('./product/base');
 
 function updateAvailability(e, response) {
     var availabilityValue = '';

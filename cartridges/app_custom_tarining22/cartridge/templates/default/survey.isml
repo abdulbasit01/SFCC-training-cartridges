@@ -1,0 +1,10 @@
+<isdecorate template="common/layout/page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 card m-auto">
+                <input type="text" />
+                <button class="btn btn-primary">submit</button>
+            </div>
+        </div>
+    </div>
+</isdecorate>

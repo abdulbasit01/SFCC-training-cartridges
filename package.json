@@ -128,6 +128,6 @@
     }
   },
   "paths": {
-    "base": "./cartridges/app_storefront_base/cartridge"
+    "base": "./cartridges/app_custom_tarining22/cartridge/client"
   }
 }
