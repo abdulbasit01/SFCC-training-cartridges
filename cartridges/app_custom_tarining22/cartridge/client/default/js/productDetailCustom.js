@@ -1,6 +1,6 @@
 
 'use strict';
-var base = require('./product/base');
+var base = require('base/product/base');
 
 function updateAvailability(e, response) {
     var availabilityValue = '';

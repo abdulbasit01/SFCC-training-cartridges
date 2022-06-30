@@ -12,6 +12,7 @@
                         <div class="login-form-nav">
                             <form action="${pdict.actionUrl}" method="POST" class="newsletter-form" <isprint
                                 value="${pdict.newsletterForm.attributes}" encoding="off" />>
+                            
                             <div class="form-group required">
                                 <label class="form-control-label">
                                     <isprint value="${pdict.newsletterForm.fname.label}" encoding="htmlcontent" />

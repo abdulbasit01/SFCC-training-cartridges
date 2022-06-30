@@ -1,7 +1,7 @@
 'use strict';
-var processInclude = require('./util');
+var processInclude = require('base/util');
 
 $(document).ready(function (param) {
     console.log(param);
-    processInclude(require('./cart/cart'));
+    processInclude(require('base/cart/cart'));
 });

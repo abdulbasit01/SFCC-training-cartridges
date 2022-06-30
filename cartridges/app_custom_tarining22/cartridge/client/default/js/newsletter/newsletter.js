@@ -1,13 +1,10 @@
 'use strict';
-
 var formValidation = require('base/components/formValidation');
-
 module.exports = {
-    newsletter: function () {
-        $('.equal-height').submit(function (e) {
+    submitNewsletter: function () {
+        $('form.newsletter-form').submit(function (e) {
             var $form = $(this);
             e.preventDefault();
-            console.log($form);
             var url = $form.attr('action');
             $form.spinner().start();
             $('form.newsletter-form').trigger('newsletter:submit', e);
@@ -21,8 +18,7 @@ module.exports = {
                     if (!data.success) {
                         formValidation($form, data);
                     } else {
-                        console.log(1);
-                        // window.location.href = data.redirectUrl;
+                        window.location.href = data.redirectUrl;
                     }
                 },
                 error: function (err) {

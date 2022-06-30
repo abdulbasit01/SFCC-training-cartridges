@@ -1,0 +1,34 @@
+<isdecorate template="common/layout/page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 m-auto p-3 pt-3">
+                <div class="card p-3">
+                    <h3 class="text-center">Form Result </h3>
+                    <div class="text-underline">
+                        First Name : ${pdict.newsletterForm.fname.htmlValue}
+                    </div>
+                    <div class="text-underline">
+                        Last Name : ${pdict.newsletterForm.lname.htmlValue}
+                    </div>
+                    <div class="text-underline">
+                        Email : ${pdict.newsletterForm.email.htmlValue}
+                    </div>
+                    <div class="text-underline">
+                        Organization : ${pdict.newsletterForm.organization.htmlValue}
+                    </div>
+                    <div class="text-underline">
+                        Primary Intrest : ${pdict.newsletterForm.primaryintrest.htmlValue}
+                    </div>
+                    <div class="text-underline">
+                        Recieving marketing email :
+                        <isif condition="${pdict.newsletterForm.marketingemial.checked}">
+                            Yes
+                        <iselse/>
+                            No
+                        </isif>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>
