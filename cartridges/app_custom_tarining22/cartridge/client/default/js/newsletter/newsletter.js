@@ -16,9 +16,14 @@ module.exports = {
                 success: function (data) {
                     $form.spinner().stop();
                     if (!data.success) {
+                        e.stopPropagation()
                         formValidation($form, data);
+                        $('.surevy-alert-failed').toggleClass("d-none")
                     } else {
-                        window.location.href = data.redirectUrl;
+                        $('.surevy-alert-success').toggleClass("d-none")
+
+                        console.log(data);
+                        // window.location.href = data.redirectUrl;
                     }
                 },
                 error: function (err) {

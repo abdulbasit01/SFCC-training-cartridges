@@ -36,6 +36,13 @@ server.post(
         if (newsletterForm.valid) {
             res.json({
                 success: true,
+                newsletterForm: [
+                    { fname: newsletterForm.fname.htmlValue },
+                    { lname: newsletterForm.lname.htmlValue },
+                    { email: newsletterForm.email.htmlValue },
+                    { organization: newsletterForm.organization.htmlValue },
+                    { primaryintrest: newsletterForm.primaryintrest.htmlValue }
+                ],
                 redirectUrl: URLUtils.url('Survey-Success').toString()
             });
         } else {
@@ -61,4 +68,16 @@ server.get(
         next();
     }
 );
+server.get(
+    "Error",
+    server.middleware.https,
+    function (req, res, next) {
+        var newsletterForm = server.forms.getForm('survey')
+        res.render('/survey/failure', {
+            newsletterForm: newsletterForm
+        });
+
+        next();
+    }
+)
 module.exports = server.exports();
