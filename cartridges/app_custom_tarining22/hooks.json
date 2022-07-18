@@ -1,0 +1,12 @@
+{
+    "hooks": [
+        {
+            "name": "newsletter.email",
+            "script": "./cartridge/scripts/hooks/newsletterEmail.js"
+        },
+        {
+            "name": "survey.email",
+            "script": "./cartridge/scripts/hooks/surveyEmail.js"
+        }
+    ]
+}

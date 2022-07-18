@@ -9,10 +9,16 @@
             <div class="col-sm-8 col-md-6">
                 <div class="card mt-4">
                     <div class="card-body">
+                        <div class="d-none alert alert-success surevy-alert-success" role="alert">
+                            Newsletter form successfully submitted
+                        </div>
+                        <div class="d-none alert alert-danger surevy-alert-failed" role="alert">
+                            Newsletter failed
+                        </div>
                         <div class="login-form-nav">
                             <form action="${pdict.actionUrl}" method="POST" class="newsletter-form" <isprint
                                 value="${pdict.newsletterForm.attributes}" encoding="off" />>
-                            
+
                             <div class="form-group required">
                                 <label class="form-control-label">
                                     <isprint value="${pdict.newsletterForm.fname.label}" encoding="htmlcontent" />

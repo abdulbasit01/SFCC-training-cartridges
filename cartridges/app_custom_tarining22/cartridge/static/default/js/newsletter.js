@@ -150,9 +150,9 @@ module.exports = {
                         $('.surevy-alert-failed').toggleClass("d-none")
                     } else {
                         $('.surevy-alert-success').toggleClass("d-none")
-
-                        console.log(data);
-                        // window.location.href = data.redirectUrl;
+                        setTimeout(() => {
+                            window.location.href = data.redirectUrl;
+                        }, 3000);
                     }
                 },
                 error: function (err) {

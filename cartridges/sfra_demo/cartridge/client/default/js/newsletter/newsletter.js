@@ -21,8 +21,7 @@ module.exports = {
                     if (!data.success) {
                         formValidation($form, data);
                     } else {
-                        console.log(1);
-                        // window.location.href = data.redirectUrl;
+                        window.location.href = data.redirectUrl;
                     }
                 },
                 error: function (err) {

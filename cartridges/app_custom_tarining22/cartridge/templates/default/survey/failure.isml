@@ -1,1 +1,4 @@
-failure
+<isdecorate template="common/layout/page">
+    ${pdict.gbError}
+    failure
+</isdecorate>
