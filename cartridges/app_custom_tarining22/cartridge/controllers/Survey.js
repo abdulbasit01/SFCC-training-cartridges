@@ -16,7 +16,7 @@ var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var Logger = require('dw/system/Logger');
 var Resource = require('dw/web/Resource')
 var CustomObjectMgr = require('dw/object/CustomObjectMgr');
-var gbError = ""
+var gbError = "";
 server.get("Show", server.middleware.https, csrfProtection.generateToken, function (req, res, next) {
 
     var newsletterForm = server.forms.getForm('survey');
@@ -75,7 +75,6 @@ server.post(
                     }
                     else {
                         Logger.getLogger("survey_form").error(Resource.msg(err, 'newsletter', null));
-                        // Show general error page: there is nothing else to do
                         res.setStatusCode(500);
                         res.json({
                             errorMessage: err,
@@ -113,10 +112,11 @@ server.get(
     "Error",
     server.middleware.https,
     function (req, res, next) {
-        var newsletterForm = server.forms.getForm('survey')
         res.render('/survey/failure', {
             gbError: gbError,
-            newsletterForm: newsletterForm
+            newsletterForm: server.forms.getForm('newsletter'),
+            errorMsg: Resource.msg('error.customobjectmissing', 'newsletter', null),
+            continueUrl: URLUtils.url('Survey-Show').toString()
         });
 
         next();

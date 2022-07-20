@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19" secure="false">
+    <field formid="firstName" parse-error="error.message.parse.fname.profile.form" label="label.input.firstname.profile" mandatory="true" max-length="50" type="string" />
+
+    <field formid="lastName" parse-error="error.message.parse.fname.profile.form" label="label.input.lastname.profile" mandatory="true" max-length="50" type="string" />
+</form>

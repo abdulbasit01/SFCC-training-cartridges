@@ -1,4 +1,6 @@
 <isdecorate template="common/layout/page">
-    ${pdict.gbError}
-    failure
+    <h3>
+        ${"There was an error submitting this form"}
+    </h3>
+    ${"Back to "}<a href="${pdict.continueUrl}">${"Surevy Form."}</a>
 </isdecorate>

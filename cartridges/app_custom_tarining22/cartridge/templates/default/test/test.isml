@@ -1,0 +1,41 @@
+<isdecorate template="common/layout/page">
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top w-100" src="https://wallpaperaccess.com/full/1684793.png" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">${pdict.sampleText}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row">
+            <form action="${pdict.continueUrl}" method="POST" class="newsletter-form" <isprint
+                value="${pdict.xmlObjectSchema.attributes}" encoding="off" />>
+            <div class="row form-group m-2 required">
+                <label class="form-control-label">
+                    <isprint value="${pdict.xmlObjectSchema.firstName.label}" encoding="htmlcontent" />
+                </label>
+                <input type="text" class="form-control" id="survey-form-fname" <isprint
+                    value="${pdict.xmlObjectSchema.firstName.attributes}" encoding="off" />/>
+                <div class="invalid-feedback"></div>
+
+            </div>
+            <div class="row form-group m-2 required">
+                <label class="form-control-label">
+                    <isprint value="${pdict.xmlObjectSchema.lastName.label}" encoding="htmlcontent" />
+                </label>
+                <input type="text" class="form-control" id="survey-form-fname" <isprint
+                    value="${pdict.xmlObjectSchema.lastName.attributes}" encoding="off" />/>
+                <div class="invalid-feedback"></div>
+                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+                <input type="hidden" name="${pdict.lengthOfCustomObject}" value="${pdict.lengthOfCustomObject}" />
+                <button class="btn btn-primary mt-3">${"submit"}</button>
+                
+            </div>
+            </form>
+        </div>
+    </div>
+</isdecorate>
