@@ -25,9 +25,9 @@ server.get("Show", server.middleware.https, csrfProtection.generateToken, functi
 server.post("Handler", server.middleware.https, csrfProtection.generateToken, function (req, res, next) {
     if (xmlObjectSchema.valid) {
         var lengthOfCustomObject = +(CustomObjectMgr.getAllCustomObjects('practiceForm').count) + 1;
-        var co = CustomObjectMgr.createCustomObject('practiceForm', String(lengthOfCustomObject));
-        co.custom.firstName = xmlObjectSchema.firstName.value;
-        co.custom.lastName = xmlObjectSchema.lastName.value;
+        // var co = CustomObjectMgr.createCustomObject('practiceForm', String(lengthOfCustomObject));
+        // co.custom.firstName = xmlObjectSchema.firstName.value;
+        // co.custom.lastName = xmlObjectSchema.lastName.value;
         res.render('test/testresult',
             {
                 xmlObjectSchema: xmlObjectSchema,
